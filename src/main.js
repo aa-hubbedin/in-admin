@@ -5,6 +5,9 @@ import vuetify from './plugins/vuetify';
 
 import Axios from 'axios'
 
+import wysiwyg from "vue-wysiwyg";
+Vue.use(wysiwyg, {});
+
 Vue.prototype.$axios = Axios;
 Vue.prototype.$apiBase = process.env.VUE_APP_API_BASE_URL;
 

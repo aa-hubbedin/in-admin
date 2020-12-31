@@ -18,6 +18,18 @@ const routes = [
         component: () => import(/* webpackChunkName: "candidates" */ '../views/Candidates.vue'),
         beforeEnter: authGuard
     },
+    {
+        path: '/companies',
+        name: 'Companies',
+        component: () => import(/* webpackChunkName: "companies" */ '../views/Companies.vue'),
+        beforeEnter: authGuard
+    },
+    {
+        path: '/joblistings',
+        name: 'Job Posts',
+        component: () => import(/* webpackChunkName: "joblistings" */ '../views/Joblistings.vue'),
+        beforeEnter: authGuard
+    },
     // {
     //     path: '/projects',
     //     name: 'Projects',
@@ -36,6 +48,12 @@ const routes = [
         component: () => import(/* webpackChunkName: "assessmentshow" */ '../views/AssessmentShow.vue'),
         beforeEnter: authGuard,
         props: true
+    },
+
+    {
+        path: '/unauthorized',
+        name: 'Unauthorized',
+        component: () => import(/* webpackChunkName: "unauthorized" */ '../views/Unauthorized.vue')
     },
     {
         path: '*',

@@ -72,14 +72,14 @@
                             :error-messages="validationErrors($v.edit.contactNumber, 'Contact Number')"
                         ></v-text-field>
                         <v-text-field
-                            v-model="edit.residenceCity"
+                            v-model="edit.candidate.residenceCity"
                             class="mt-3"
                             label="City of Residence"
                             outlined
                             dense
                             hide-details="auto"
-                            @blur="$v.edit.residenceCity.$touch()"
-                            :error-messages="validationErrors($v.edit.residenceCity, 'City')"
+                            @blur="$v.edit.candidate.residenceCity.$touch()"
+                            :error-messages="validationErrors($v.edit.candidate.residenceCity, 'City')"
                         ></v-text-field>
                     </div>
                 </div>
@@ -93,13 +93,13 @@
                     >
                         <v-icon class="mr-2">mdi-github</v-icon>
                         <v-text-field
-                            v-model="edit.scmUrl"
+                            v-model="edit.candidate.scmUrl"
                             label="Github URL"
                             outlined
                             dense
                             hide-details="auto"
-                            @blur="$v.edit.scmUrl.$touch()"
-                            :error-messages="validationErrors($v.edit.scmUrl, 'Github URL')"
+                            @blur="$v.edit.candidate.scmUrl.$touch()"
+                            :error-messages="validationErrors($v.edit.candidate.scmUrl, 'Github URL')"
                         ></v-text-field>
                     </div>
                     <div 
@@ -107,13 +107,13 @@
                     >
                         <v-icon class="mr-2">mdi-linkedin</v-icon>
                         <v-text-field
-                            v-model="edit.linkedInUrl"
+                            v-model="edit.candidate.linkedInUrl"
                             label="LinkedIn URL"
                             outlined
                             dense
                             hide-details="auto"
-                            @blur="$v.edit.linkedInUrl.$touch()"
-                            :error-messages="validationErrors($v.edit.linkedInUrl, 'LinkedIn URL')"
+                            @blur="$v.edit.candidate.linkedInUrl.$touch()"
+                            :error-messages="validationErrors($v.edit.candidate.linkedInUrl, 'LinkedIn URL')"
                         ></v-text-field>
                     </div>
                     <div 
@@ -121,13 +121,13 @@
                     >
                         <v-icon class="mr-2">mdi-web</v-icon>
                         <v-text-field
-                            v-model="edit.websiteUrl"
+                            v-model="edit.candidate.websiteUrl"
                             label="Personal Website"
                             outlined
                             dense
                             hide-details="auto"
-                            @blur="$v.edit.websiteUrl.$touch()"
-                            :error-messages="validationErrors($v.edit.websiteUrl, 'Website URL')"
+                            @blur="$v.edit.candidate.websiteUrl.$touch()"
+                            :error-messages="validationErrors($v.edit.candidate.websiteUrl, 'Website URL')"
                         ></v-text-field>
                     </div>
                 </div>
@@ -142,6 +142,8 @@
                     outlined
                     dense
                     hide-details="auto"
+                    @blur="$v.edit.firstName.$touch()"
+                    :error-messages="validationErrors($v.edit.firstName, 'First Name')"
                 ></v-text-field>
                 <v-text-field
                     v-model="edit.lastName"
@@ -150,6 +152,8 @@
                     outlined
                     dense
                     hide-details="auto"
+                    @blur="$v.edit.lastName.$touch()"
+                    :error-messages="validationErrors($v.edit.lastName, 'Last Name')"
                 ></v-text-field>
                     
                 <v-text-field
@@ -159,6 +163,8 @@
                     outlined
                     dense
                     hide-details="auto"
+                    @blur="$v.edit.email.$touch()"
+                    :error-messages="validationErrors($v.edit.email, 'Email')"
                 ></v-text-field>
                 <v-text-field
                     v-model="edit.contactNumber"
@@ -167,14 +173,18 @@
                     outlined
                     dense
                     hide-details="auto"
+                    @blur="$v.edit.contactNumber.$touch()"
+                    :error-messages="validationErrors($v.edit.contactNumber, 'Contact Number')"
                 ></v-text-field>
                 <v-text-field
-                    v-model="edit.residenceCity"
+                    v-model="edit.candidate.residenceCity"
                     class="mt-3"
                     label="City of Residence"
                     outlined
                     dense
                     hide-details="auto"
+                    @blur="$v.edit.candidate.residenceCity.$touch()"
+                    :error-messages="validationErrors($v.edit.candidate.residenceCity, 'City')"
                 ></v-text-field>
             </div>
 
@@ -187,11 +197,13 @@
                 >
                     <v-icon class="mr-2">mdi-github</v-icon>
                     <v-text-field
-                        v-model="edit.scmUrl"
+                        v-model="edit.candidate.scmUrl"
                         label="Github URL"
                         outlined
                         dense
                         hide-details="auto"
+                        @blur="$v.edit.candidate.scmUrl.$touch()"
+                        :error-messages="validationErrors($v.edit.candidate.scmUrl, 'Github URL')"
                     ></v-text-field>
                 </div>
                 <div 
@@ -199,11 +211,13 @@
                 >
                     <v-icon class="mr-2">mdi-linkedin</v-icon>
                     <v-text-field
-                        v-model="edit.linkedInUrl"
+                        v-model="edit.candidate.linkedInUrl"
                         label="LinkedIn URL"
                         outlined
                         dense
                         hide-details="auto"
+                        @blur="$v.edit.candidate.linkedInUrl.$touch()"
+                        :error-messages="validationErrors($v.edit.candidate.linkedInUrl, 'LinkedIn URL')"
                     ></v-text-field>
                 </div>
                 <div 
@@ -211,11 +225,13 @@
                 >
                     <v-icon class="mr-2">mdi-web</v-icon>
                     <v-text-field
-                        v-model="edit.websiteUrl"
+                        v-model="edit.candidate.websiteUrl"
                         label="Personal Website"
                         outlined
                         dense
                         hide-details="auto"
+                        @blur="$v.edit.candidate.websiteUrl.$touch()"
+                        :error-messages="validationErrors($v.edit.candidate.websiteUrl, 'Website URL')"
                     ></v-text-field>
                 </div>
             </div>
@@ -224,7 +240,7 @@
                 <v-col cols="12">
                     <div>Professional Summary</div>
                     <v-textarea
-                        v-model="edit.summary"
+                        v-model="edit.candidate.summary"
                         class="mt-1"
                         outlined
                         hide-details="auto"
@@ -236,7 +252,7 @@
                 </v-col>
                 <v-col cols="6" md="4">
                     <v-select
-                        v-model="edit.educationLevel"
+                        v-model="edit.candidate.educationLevel"
                         :items="levels"
                         outlined
                         dense
@@ -249,7 +265,7 @@
                 </v-col>
                 <v-col cols="6" md="2">
                     <v-text-field
-                        v-model="edit.expectedSalaryCurrency"
+                        v-model="edit.candidate.expectedSalaryCurrency"
                         label="Currency"
                         outlined
                         dense
@@ -258,7 +274,7 @@
                 </v-col>
                 <v-col cols="6" md="2">
                     <v-text-field
-                        v-model="edit.expectedSalary"
+                        v-model="edit.candidate.expectedSalary"
                         label="Amount"
                         outlined
                         dense
@@ -283,7 +299,7 @@
                 </v-col>
                 <v-col cols="6" md="4">
                     <v-text-field
-                        v-model="edit.nationality"
+                        v-model="edit.candidate.nationality"
                         outlined
                         dense
                         hide-details="auto"
@@ -329,7 +345,7 @@
                 </v-col>
                 <v-col cols="6" md="4">
                     <v-text-field
-                        v-model="edit.noticePeriod"
+                        v-model="edit.candidate.noticePeriod"
                         outlined
                         dense
                         hide-details="auto"
@@ -389,19 +405,11 @@ export default {
             }
         }
     },
-    computed: {
-        name() {
-            return this.edit.firstName + " " + this.edit.lastName;
-        },
-        expSalary() {
-            return this.edit.expectedSalaryCurrency + " " + this.edit.expectedSalary;
-        },
-    },
     methods: {
         async updateCandidate() {
             this.loading = true;
             try {
-                await this.$axios.put(this.$apiBase + '/v1/candidates/' + this.edit.id, this.edit, this.axiosConfig);
+                await this.$axios.put(this.$apiBase + '/v1/users/' + this.edit.id, this.edit, this.axiosConfig);
             } catch (e) {
                 this.error = e;
             } finally {

@@ -57,3 +57,7 @@ export default {
     }
 };
 </script>
+
+<style>
+@import "~vue-wysiwyg/dist/vueWysiwyg.css";
+</style>

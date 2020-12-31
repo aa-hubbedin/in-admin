@@ -80,6 +80,16 @@ export default {
                     icon: 'mdi-account',
                     link: '/'
                 },
+                {
+                    title: 'Companies',
+                    icon: 'mdi-domain',
+                    link: '/companies'
+                },
+                {
+                    title: 'Job Posts',
+                    icon: 'mdi-format-list-text',
+                    link: '/joblistings'
+                },
                 // {
                 //     title: 'Projects',
                 //     icon: 'mdi-github',
