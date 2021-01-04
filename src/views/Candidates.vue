@@ -12,14 +12,14 @@
                     >
                         <template v-slot:[`item.name`]="{ item }">{{ item.firstName }} {{ item.lastName }}</template>
                         <template v-slot:[`item.createdAt`]="{ item }">{{ formatDate(item.createdAt) }}</template>
-                        <template v-slot:[`item.linkedInUrl`]="{ item }"><a v-if="item.linkedInUrl" :href="item.linkedInUrl" target="_blank">Link</a></template>
-                        <template v-slot:[`item.expectedSalary`]="{ item }">{{ item.expectedSalaryCurrency }} {{ Number(item.expectedSalary).toLocaleString() }}</template>
+                        <template v-slot:[`item.linkedInUrl`]="{ item }"><a v-if="item.candidate.linkedInUrl" :href="item.candidate.linkedInUrl" target="_blank">Link</a></template>
+                        <template v-slot:[`item.expectedSalary`]="{ item }">{{ item.candidate.expectedSalaryCurrency }} {{ Number(item.candidate.expectedSalary).toLocaleString() }}</template>
                         <template v-slot:[`item.skills`]="{ item }">
                             <v-chip
                                 class="ma-1 pa-3"
                                 color="indigo"
                                 dark
-                                v-for="(skill, index) in item.skills"
+                                v-for="(skill, index) in item.candidate.skills"
                                 :key="index"
                             >
                                 {{ skill.name }}
@@ -67,8 +67,8 @@ export default {
                 { text: 'Name', value: 'name', width: '150px', fixed: true },
                 { text: 'Email', value: 'email', width: '200px' },
                 { text: 'Contact Number', value: 'contactNumber', width: '150px' },
-                { text: 'Location', value: 'residenceCity', width: '110px' },
-                { text: 'Nationality', value: 'nationality', width: '110px' },
+                { text: 'Location', value: 'candidate.residenceCity', width: '110px' },
+                { text: 'Nationality', value: 'candidate.nationality', width: '110px' },
                 { text: 'Skills', value: 'skills', width: '250px' },
                 { text: 'LinkedIn', value: 'linkedInUrl', width: '100px' },
                 { text: 'Expected Salary', value: 'expectedSalary', width: '140px' },
@@ -143,19 +143,19 @@ export default {
         },
         'filters.location': {
             handler(val) {
-                this.filteredCandidates = this.candidates.filter(candidate => candidate.residenceCity.includes(val));
+                this.filteredCandidates = this.candidates.filter(candidate => candidate.candidate.residenceCity.includes(val));
             }
         },
         'filters.nationality': {
             handler(val) {
-                this.filteredCandidates = this.candidates.filter(candidate => candidate.nationality.includes(val));
+                this.filteredCandidates = this.candidates.filter(candidate => candidate.candidate.nationality.includes(val));
             }
         },
         'filters.skills': {
             handler(val) {
                 this.filteredCandidates = this.candidates.filter(candidate => {
                     let skills = val.split(',').map(skill => skill.trim()).filter(skill => skill.length > 0);
-                    let candidateSkills = candidate.skills.map(skill => skill.name);
+                    let candidateSkills = candidate.candidate.skills.map(skill => skill.name);
                     if (skills.every(skill => candidateSkills.includes(skill))) return true;
                     return false;
                 });
@@ -163,7 +163,7 @@ export default {
         },
         'filters.expectedSalary': {
             handler(val) {
-                this.filteredCandidates = this.candidates.filter(candidate => candidate.expectedSalary <= val);
+                this.filteredCandidates = this.candidates.filter(candidate => candidate.candidate.expectedSalary <= val);
             }
         },
         'filters.createdAt': {
