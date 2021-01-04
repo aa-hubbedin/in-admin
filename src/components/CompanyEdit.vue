@@ -142,7 +142,7 @@ export default {
         },
         async updateCompany() {
             try {
-                await this.$axios.put(this.$apiBase + '/v1/jobs/companies/' + this.edit.id, this.selectedCompany, this.axiosConfig);
+                await this.$axios.put(this.$apiBase + '/v1/jobs/companies/' + this.edit.id, this.edit, this.axiosConfig);
             } catch (e) {
                 this.error = e;
             }
