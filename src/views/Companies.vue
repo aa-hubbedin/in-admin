@@ -53,7 +53,7 @@
                                 <td colspan="1"></td>
                                 <td><v-text-field v-model="filters.name" dense hide-details></v-text-field></td>
                                 <td><v-text-field v-model="filters.size" dense hide-details label=">="></v-text-field></td>
-                                <td><v-text-field v-model="filters.industries" dense hide-details label="comma separted"></v-text-field></td>
+                                <td><v-text-field v-model="filters.industries" dense hide-details label="comma separated"></v-text-field></td>
                             </tr>
                         </template>
                     </v-data-table>
