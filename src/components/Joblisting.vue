@@ -38,7 +38,7 @@
                 scrollable
                 max-width="1000"
             >
-                <JobEdit
+                <JobPostEdit
                     :job="job"
                     method="put"
                     @close="editDialog = false; getJob()"
@@ -99,13 +99,13 @@
 </template>
 
 <script>
-import JobEdit from '@/components/JobEdit';
+import JobPostEdit from '@/components/JobPostEdit';
 import moment from 'moment';
 
 export default {
     name: 'Joblisting',
     components: {
-        JobEdit
+        JobPostEdit
     },
     props: {
         job: {
