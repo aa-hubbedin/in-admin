@@ -387,14 +387,14 @@ export default {
 
             var existingJobFunctions = this.jobFunctions.map(jobFunction => jobFunction.name);
             // if job function does not exist, create it
-            if (!this.edit.function.id && !existingJobFunctions.includes(this.edit.function)) {
+            if (this.edit.function && !this.edit.function.id && !existingJobFunctions.includes(this.edit.function)) {
                 let jobFunction = await this.createJobFunction(this.edit.function);
                 this.edit.jobFunctionId = jobFunction.id;
             }
             
             var existingIndustries = this.industries.map(industry => industry.name);
             // if industry does not exist, create it
-            if (!this.edit.industry.id && !existingIndustries.includes(this.edit.industry)) {
+            if (this.edit.industry && !this.edit.industry.id && !existingIndustries.includes(this.edit.industry)) {
                 let industry = await this.createIndustry(this.edit.industry);
                 this.edit.industryId = industry.id;
             }
